@@ -147,14 +147,18 @@ class _HomePageState extends State<HomePage> {
                   TextField(
                     controller: nomeController,
                     decoration: const InputDecoration(
-                        labelText: 'Seu Nome',
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                width: 2,
-                                color: Color.fromARGB(255, 242, 92, 132)))),
+                      labelText: 'Seu Nome',
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          width: 2,
+                          color: Color.fromARGB(255, 242, 92, 132),
+                        ),
+                      ),
+                    ),
                     cursorColor: const Color.fromARGB(255, 242, 92, 132),
                     style: const TextStyle(
-                        color: Color.fromARGB(255, 242, 92, 132)),
+                      color: Color.fromARGB(255, 242, 92, 132),
+                    ),
                   ),
                   const SizedBox(
                     height: 10,
@@ -162,11 +166,14 @@ class _HomePageState extends State<HomePage> {
                   TextField(
                     controller: telefoneController,
                     decoration: const InputDecoration(
-                        labelText: 'Seu Telefone',
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                width: 2,
-                                color: Color.fromARGB(255, 242, 92, 132)))),
+                      labelText: 'Seu Telefone',
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          width: 2,
+                          color: Color.fromARGB(255, 242, 92, 132),
+                        ),
+                      ),
+                    ),
                     cursorColor: const Color.fromARGB(255, 242, 92, 132),
                     style: const TextStyle(
                         color: Color.fromARGB(255, 242, 92, 132)),
@@ -174,6 +181,35 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    if (nomeController.text.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Por favor, insira seu nome!"),
+                        ),
+                      );
+                      return;
+                    }
+                    if (telefoneController.text.isEmpty ||
+                        !RegExp(r'^\(\d{2}\) \d{5}-\d{4}$')
+                            .hasMatch(telefoneController.text)) {
+                      const SnackBar(
+                          content: Text("Por favor, insira seu telefone!"));
+                      return;
+                    }
+                  },
+                  child: const Text(
+                    'Pegar',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 242, 92, 132),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                )
+              ],
             ),
           );
         });
