@@ -136,6 +136,18 @@ class _HomePageState extends State<HomePage> {
                       '* Após realizar a escolha do seu número, volte no seu número escolhido e pegue a chave pix!\n* Envie o comprovante para a mamãe ou o papai!',
                     ),
                   ),
+                  TextField(
+                    controller: nomeController,
+                    decoration: const InputDecoration(
+                        labelText: 'Seu Nome',
+                        border: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                width: 2,
+                                color: Color.fromARGB(255, 242, 92, 132)))),
+                    cursorColor: const Color.fromARGB(255, 242, 92, 132),
+                    style: const TextStyle(
+                        color: Color.fromARGB(255, 242, 92, 132)),
+                  )
                 ],
               ),
             ),
