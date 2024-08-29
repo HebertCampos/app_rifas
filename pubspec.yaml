@@ -64,6 +64,7 @@ flutter:
   assets:
     - assets/img_rifa_fundo.png
     - assets/img_rifa_topo.png
+    - assets/pix.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
