@@ -134,6 +134,7 @@ class _HomePageState extends State<HomePage> {
         builder: (context) {
           return SingleChildScrollView(
             child: AlertDialog(
+              backgroundColor: const Color.fromARGB(255, 255, 243, 243),
               title: Text('Pegando o número $id 👏👏👏!'),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -213,12 +214,19 @@ class _HomePageState extends State<HomePage> {
                   child: const Text(
                     'Pegar',
                     style: TextStyle(
-                      color: Color.fromARGB(255, 242, 92, 132),
+                      color: Color.fromARGB(255, 189, 64, 87),
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
                   ),
-                )
+                ),
+                TextButton(
+                  child: const Text(
+                    "Cancelar",
+                    style: TextStyle(color: Colors.redAccent),
+                  ),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
               ],
             ),
           );
