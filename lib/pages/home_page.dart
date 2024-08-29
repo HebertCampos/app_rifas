@@ -1,6 +1,7 @@
 import 'package:app_rifas/models/numeros_model.dart';
 import 'package:app_rifas/services/api_service.dart';
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -121,6 +122,13 @@ class _HomePageState extends State<HomePage> {
     final nomeController = TextEditingController();
     final telefoneController = TextEditingController();
 
+    final maskFormatter = MaskTextInputFormatter(
+      mask: '(##) #####-####',
+      filter: {
+        "#": RegExp(r'[0-9]'),
+      },
+    );
+
     showDialog(
         context: context,
         builder: (context) {
@@ -147,7 +155,23 @@ class _HomePageState extends State<HomePage> {
                     cursorColor: const Color.fromARGB(255, 242, 92, 132),
                     style: const TextStyle(
                         color: Color.fromARGB(255, 242, 92, 132)),
-                  )
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextField(
+                    controller: telefoneController,
+                    decoration: const InputDecoration(
+                        labelText: 'Seu Telefone',
+                        border: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                width: 2,
+                                color: Color.fromARGB(255, 242, 92, 132)))),
+                    cursorColor: const Color.fromARGB(255, 242, 92, 132),
+                    style: const TextStyle(
+                        color: Color.fromARGB(255, 242, 92, 132)),
+                    inputFormatters: [maskFormatter],
+                  ),
                 ],
               ),
             ),
