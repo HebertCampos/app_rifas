@@ -85,7 +85,7 @@ class _HomePageState extends State<HomePage> {
                           itemBuilder: (context, index) {
                             final numero = numeros[index];
                             return GestureDetector(
-                              onTap: () {},
+                              onTap: () => _showInscricaoForm(numero.id),
                               child: Container(
                                 margin: const EdgeInsets.all(2),
                                 decoration: BoxDecoration(
@@ -115,5 +115,31 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+
+  void _showInscricaoForm(int id) {
+    final nomeController = TextEditingController();
+    final telefoneController = TextEditingController();
+
+    showDialog(
+        context: context,
+        builder: (context) {
+          return SingleChildScrollView(
+            child: AlertDialog(
+              title: Text('Pegando o número $id 👏👏👏!'),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.only(top: 20, bottom: 20),
+                    child: const Text(
+                      '* Após realizar a escolha do seu número, volte no seu número escolhido e pegue a chave pix!\n* Envie o comprovante para a mamãe ou o papai!',
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
   }
 }
