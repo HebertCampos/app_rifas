@@ -3,6 +3,8 @@ import 'package:app_rifas/models/numeros_model.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import '../models/comprados_model.dart';
+
 class ApiService {
   final String baseUrl = '';
 
@@ -26,6 +28,16 @@ class ApiService {
     );
     if (response.statusCode != 201) {
       throw Exception('Falha ao pegar número!');
+    }
+  }
+
+  Future<Comprados?> getComprados(int id) async {
+    final response =
+        await http.get(Uri.parse('$baseUrl/sorteados?id_sorte=$id'));
+    if (response.statusCode == 200) {
+      return Comprados.fromJson(json.decode(response.body));
+    } else {
+      return null;
     }
   }
 }
