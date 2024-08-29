@@ -15,13 +15,23 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     futureNumeros = apiService.getNumeros();
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(
+              'assets/img_rifa_fundo.png',
+              fit: BoxFit.cover,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
