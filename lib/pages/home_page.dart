@@ -199,6 +199,16 @@ class _HomePageState extends State<HomePage> {
                           content: Text("Por favor, insira seu telefone!"));
                       return;
                     }
+
+                    apiService
+                        .inscrever(
+                            nomeController.text, telefoneController.text, id)
+                        .then((_) {
+                      setState(() {
+                        futureNumeros = apiService.getNumeros();
+                      });
+                      Navigator.of(context).pop();
+                    });
                   },
                   child: const Text(
                     'Pegar',
