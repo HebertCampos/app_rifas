@@ -64,7 +64,13 @@ class _HomePageState extends State<HomePage> {
                           );
                         } else if (snapshot.hasError) {
                           return Center(
-                            child: Text("Erro: ${snapshot.error}"),
+                            child: Text(
+                              "Erro: ${snapshot.error}",
+                              style: const TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           );
                         }
                         final numeros = snapshot.data!;
