@@ -3,11 +3,10 @@ import 'package:app_rifas/models/numeros_model.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import '../constants/api_constants.dart';
 import '../models/comprados_model.dart';
 
 class ApiService {
-  final String baseUrl = '';
-
   Future<List<Numeros>> getNumeros() async {
     final response = await http.get(Uri.parse('$baseUrl/numerosDaSorte'));
     if (response.statusCode == 200) {
