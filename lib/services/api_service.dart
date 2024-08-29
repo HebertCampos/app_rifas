@@ -17,4 +17,15 @@ class ApiService {
       throw Exception('Falha ao carregar números');
     }
   }
+
+  Future<void> inscrever(String nome, String telefone, int id) async {
+    final response = await http.post(
+      Uri.parse('$baseUrl/inscricao'),
+      headers: {'Content-Type': 'application/json'},
+      body: json.encode({'nome': nome, 'telefone': telefone, 'id': id}),
+    );
+    if (response.statusCode != 201) {
+      throw Exception('Falha ao pegar número!');
+    }
+  }
 }
