@@ -200,9 +200,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onPressed: () {
                       Clipboard.setData(
-                        const ClipboardData(
-                            text:
-                                '00020126870014BR.GOV.BCB.PIX013664af769b-5063-4c60-b5b0-01eeed2227b80225Rifa da fralda Maria Ísis520400005303986540550.005802BR5925Hebert Douglas da Silva C6009SAO PAULO62140510toOHuBni7I6304237B'),
+                        const ClipboardData(text: chavePix),
                       );
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
