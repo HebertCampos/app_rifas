@@ -3,6 +3,9 @@ import 'package:app_rifas/services/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import '../constants/api_constants.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -112,8 +115,46 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
               ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                alignment: Alignment.bottomCenter,
+                height: 120,
+                child: Image.asset(
+                    'assets/img_rifa_foot.png'), // Caminho para sua imagem de rodapé
+              ),
             ],
-          )
+          ),
+          Container(
+              alignment: Alignment.bottomRight,
+              padding: const EdgeInsets.all(
+                  8.0), // Para adicionar um pequeno espaçamento
+              child: InkWell(
+                onTap: () async {
+                  final url = Uri.parse(instaUrl);
+                  if (await canLaunchUrl(url)) {
+                    await launchUrl(url);
+                  } else {
+                    throw "Não encontrado $url";
+                  }
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    const Text(
+                      'Link do \nsorteio',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 12, 77, 89),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 10),
+                    ),
+                    SizedBox(
+                      height: 26,
+                      child: Image.network(
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEBFXCirT08g-Mqzt1m6oD1Z6Dw4Oc9XqwDw&s'),
+                    ),
+                  ],
+                ),
+              )),
         ],
       ),
     );
