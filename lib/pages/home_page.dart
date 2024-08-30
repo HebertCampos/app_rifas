@@ -177,7 +177,7 @@ class _HomePageState extends State<HomePage> {
                   const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Text(
-                      'Você pode realizar o pagamente via QR Code ou coipando a chave PIX Copia e Cola',
+                      'Você pode realizar o pagamente via QR Code ou copiando a chave PIX Copia e Cola',
                     ),
                   ),
                   SizedBox(
