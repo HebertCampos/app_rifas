@@ -170,7 +170,7 @@ class _HomePageState extends State<HomePage> {
           return SingleChildScrollView(
             child: AlertDialog(
               title: Text(
-                "${comprado.nome.toUpperCase()} é o dono do número ${comprado.id}!\nEscolha outro 😅😅! \nBoa sorte...",
+                "${comprado.nome.toUpperCase()} é o dono(a) do número ${comprado.id}!\nEscolha outro 😅😅! \nBoa sorte...",
               ),
               content: Column(
                 children: [
