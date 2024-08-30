@@ -260,7 +260,7 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   padding: const EdgeInsets.only(top: 20, bottom: 20),
                   child: const Text(
-                    '* Após realizar a escolha do seu número, volte no seu número escolhido e pegue a chave pix!\n* Envie o comprovante para a mamãe ou o papai!',
+                    '* Após realizar a escolha do seu número, volte no seu número escolhido e pegue a chave PIX!\n* Envie o comprovante para a mamãe ou para o papai!',
                   ),
                 ),
                 TextField(
